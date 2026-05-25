@@ -1,135 +1,42 @@
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عيد الأضحى - ساره</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      <section class="hero">
+        <div class="eid-badge">🐑 عيد الأضحى المبارك</div>
+        <h1 class="name-title">ساره</h1>
+        <p class="subtitle">انت أجمل هديّة في العيد 💗</p>
+        <div class="sheep-row" id="sheepRow" aria-hidden="true"></div>
+      </section>
 
-  .main {
-    font-family: 'Cairo', sans-serif;
-    background: #fff5f7;
-    min-height: 100vh;
-    overflow-x: hidden;
-    direction: rtl;
-    position: relative;
-  }
+      <section class="card-section" id="cardSection"></section>
 
-  .floating-hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-  .fh { position: absolute; opacity: 0; animation: floatUp 8s ease-in infinite; }
-  @keyframes floatUp {
-    0%   { opacity: 0; transform: translateY(100vh) rotate(-15deg); }
-    10%  { opacity: 0.7; }
-    80%  { opacity: 0.5; }
-    100% { opacity: 0; transform: translateY(-20vh) rotate(15deg); }
-  }
+      <section class="big-message">
+        <blockquote class="arabic-quote">
+          "كل سنه وانت احلا حاجه في حياتي ✨"
+        </blockquote>
+      </section>
 
-  .hero { position: relative; z-index: 1; text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, #ffe8ee 0%, #fff5f7 100%); }
+      <div class="eid-sparkle" aria-hidden="true">🌙 ✨ ☪️ ✨ 🌙</div>
 
-  .eid-badge { display: inline-block; background: #d4543f; color: white; font-size: 13px; padding: 6px 18px; border-radius: 20px; margin-bottom: 20px; font-weight: 600; animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+      <footer class="footer-heart">
+        <button class="heart-big" id="burstButton" type="button" aria-label="اضغطي على القلب">
+          ❤️
+        </button>
+        <div class="footer-name">كل سنة وإنتِ أحلى يا ساره 🌸</div>
+        <p class="footer-hint">اضغطي على القلب 💗</p>
+      </footer>
+    </main>
 
-  .name-title { font-family: 'Amiri', serif; font-size: clamp(3rem, 10vw, 6rem); color: #c94060; line-height: 1.1; margin-bottom: 10px; animation: fadeSlideDown 1.2s ease forwards; opacity: 0; }
-  @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-
-  .subtitle { font-size: 16px; color: #a05068; font-weight: 300; margin-bottom: 30px; animation: fadeIn 1.8s ease forwards; opacity: 0; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  .sheep-row { font-size: 3rem; letter-spacing: 8px; margin: 20px 0; animation: bounceIn 1s ease 0.5s both; }
-  @keyframes bounceIn { 0% { transform: scale(0.3); opacity: 0; } 60% { transform: scale(1.1); opacity: 1; } 80% { transform: scale(0.95); } 100% { transform: scale(1); } }
-
-  .card-section { position: relative; z-index: 1; padding: 30px 20px; max-width: 600px; margin: 0 auto; }
-
-  .love-card { background: white; border-radius: 24px; padding: 32px 28px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(201,64,96,0.1); border: 1.5px solid #ffd6e0; position: relative; overflow: hidden; animation: slideUp 0.8s ease forwards; opacity: 0; }
-  .love-card:nth-child(1) { animation-delay: 0.2s; }
-  .love-card:nth-child(2) { animation-delay: 0.5s; }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-  .love-card::before { content: ''; position: absolute; top: -30px; left: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(212,84,63,0.08) 0%, transparent 70%); border-radius: 50%; }
-
-  .card-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
-  .card-title { font-size: 18px; font-weight: 700; color: #c94060; margin-bottom: 10px; }
-  .card-text { font-size: 15px; color: #6b3040; line-height: 1.9; font-weight: 400; }
-
-  .big-message { position: relative; z-index: 1; text-align: center; padding: 40px 20px 20px; max-width: 600px; margin: 0 auto; }
-  .arabic-quote { font-family: 'Amiri', serif; font-size: clamp(1.4rem, 4vw, 2rem); color: #c94060; line-height: 1.8; padding: 20px; background: white; border-radius: 20px; border-right: 4px solid #d4543f; box-shadow: 0 4px 20px rgba(201,64,96,0.08); text-align: right; margin-bottom: 30px; }
-
-  .eid-sparkle { position: relative; z-index: 1; text-align: center; font-size: 2rem; letter-spacing: 12px; padding: 10px; animation: glow 6s linear infinite; }
-  @keyframes glow { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
-
-  .footer-heart { text-align: center; padding: 40px 20px 50px; position: relative; z-index: 1; }
-  .heart-big { font-size: 4rem; animation: heartbeat 1.2s ease-in-out infinite; display: inline-block; cursor: pointer; }
-  @keyframes heartbeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.2); } 28% { transform: scale(1); } 42% { transform: scale(1.15); } 70% { transform: scale(1); } }
-  .footer-name { font-family: 'Amiri', serif; font-size: 1.3rem; color: #c94060; margin-top: 16px; font-style: italic; }
-
-  .heart-burst { position: fixed; pointer-events: none; z-index: 9999; font-size: 1.5rem; animation: burstAnim 1.2s ease forwards; }
-  @keyframes burstAnim { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-120px) scale(1.5); opacity: 0; } }
-</style>
-
-<div class="main">
-  <div class="floating-hearts" id="floatingHearts"></div>
-
-  <div class="hero">
-    <div class="eid-badge">🐑 عيد الأضحى المبارك</div>
-    <div class="name-title">ساره</div>
-    <p class="subtitle">انت أجمل هديّة في العيد 💗</p>
-    <div class="sheep-row"></div>
-  </div>
-
-  <div class="card-section">
-    <div class="love-card">
-      <span class="card-icon">🌹</span>
-      <div class="card-title">رجعتي وكملت العيد</div>
-      <p class="card-text">
-       كل عيد وانتي معايا يا ساره، ووجودك في حياتي هو أحلى عيد ❤️
-      </p>
-    </div>
-
-    <div class="love-card">
-      <span class="card-icon">🍓</span>
-      <div class="card-title"> عارف العيد والعيديه انت الاتنين </div>
-      <p class="card-text">
-      ❤️ رجوعنا لبعض كان أحلى هدية قبل العيد، وكل سنة وانتي قلبي وفرحتي يا ساره
-      </p>
-    </div>
-  </div>
-
-  <div class="big-message">
-    <div class="arabic-quote">
-      "كل سنه وانت احلا حاجه في حياتي ✨"
-    </div>
-  </div>
-
-  <div class="eid-sparkle">🌙 ✨ ☪️ ✨ 🌙</div>
-
-  <div class="footer-heart">
-    <div class="heart-big" onclick="burst(event)">❤️</div>
-    <div class="footer-name">كل سنة وإنتِ أحلى يا ساره 🌸</div>
-    <p style="color: #a05068; font-size: 13px; margin-top: 10px; font-family: Cairo, sans-serif;">اضغطي على القلب 💗</p>
-  </div>
-</div>
-
-<script>
-  const hearts = ['❤️','🩷','💕','💗','🍓','✨','🌸','💖','🌹'];
-  const fh = document.getElementById('floatingHearts');
-  for (let i = 0; i < 18; i++) {
-    const el = document.createElement('div');
-    el.className = 'fh';
-    el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-    el.style.left = Math.random() * 100 + '%';
-    el.style.animationDelay = (Math.random() * 8) + 's';
-    el.style.animationDuration = (6 + Math.random() * 6) + 's';
-    el.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
-    fh.appendChild(el);
-  }
-
-  function burst(e) {
-    for (let i = 0; i < 10; i++) {
-      const b = document.createElement('div');
-      b.className = 'heart-burst';
-      b.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-      b.style.left = (e.clientX + (Math.random()-0.5)*80) + 'px';
-      b.style.top = e.clientY + 'px';
-      b.style.animationDelay = (Math.random()*0.3) + 's';
-      document.body.appendChild(b);
-      setTimeout(() => b.remove(), 1500);
-    }
-  }
-</script>
+    <script src="./script.js"></script>
+  </body>
+</html>
